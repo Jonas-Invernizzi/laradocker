@@ -27,7 +27,7 @@ class TarefaController extends Controller
      */
     public function store(Request $request)
     {
-        return "OK";
+        dd($request->all());
     }
 
     /**

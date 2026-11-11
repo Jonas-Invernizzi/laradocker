@@ -22,9 +22,14 @@ class TarefaRequest extends FormRequest
      */
     public function rules(): array
     {
+        if($this->isMethod('patch')){
+            return [
+                'concluida' => ['required','boolean'],
+            ];
+        }
         return [
             'titulo' => ['required', 'string', 'max:255'],
-            'descricao' => ['required', 'min:1'],
+            'descricao' => ['string', 'nullable'],
             'concluida' => ['boolean'],
         ];
     }
